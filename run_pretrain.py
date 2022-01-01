@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 """
-batterybert.pretrain.pretrain
+run_pretrain
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 BatteryBERT pretrain runner
