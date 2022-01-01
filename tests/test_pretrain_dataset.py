@@ -8,7 +8,7 @@ author: Shu Huang (sh2009@cam.ac.uk)
 """
 import os
 import unittest
-from batterybert.pretrain.datasets import PretrainDataset
+from batterybert.pretrain.dataset import PretrainDataset
 
 
 class TestDataset(unittest.TestCase):

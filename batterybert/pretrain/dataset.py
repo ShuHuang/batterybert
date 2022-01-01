@@ -3,7 +3,7 @@
 batterybert.pretrain.datasets
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-prepare dataset
+Prepare dataset
 author: Shu Huang (sh2009@cam.ac.uk)
 """
 from datasets import load_dataset
@@ -39,8 +39,6 @@ class PretrainDataset:
         # Concatenate all texts.
         concatenated_examples = {k: sum(examples[k], []) for k in examples.keys()}
         total_length = len(concatenated_examples[list(examples.keys())[0]])
-        # We drop the small remainder, we could add padding if the model supported it instead of this drop, you can
-        # customize this part to your needs.
         total_length = (total_length // self.block_size) * self.block_size
         # Split by chunks of max_len.
         result = {
@@ -66,8 +64,8 @@ class PretrainDataset:
         :return: Tokenized Dataset of grouped text
         """
         pretrain_tokenizer = PretrainTokenizer(self.tokenizer_root, self.cache_root, do_lower_case=True)
-        datasets = self.get_dataset()
-        tokenized_datasets = datasets.map(pretrain_tokenizer.tokenize_function, batched=True, num_proc=4,
+        dataset = self.get_dataset()
+        tokenized_datasets = dataset.map(pretrain_tokenizer.tokenize_function, batched=True, num_proc=4,
                                           remove_columns=["text"])
         lm_datasets = tokenized_datasets.map(
             self.group_texts,

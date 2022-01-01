@@ -129,4 +129,4 @@ dmypy.json
 .pyre/
 
 # My files
-batterybert/pretrain/example.py
+tests/test_files/pretrain/
