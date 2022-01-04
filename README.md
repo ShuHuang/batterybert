@@ -31,28 +31,32 @@ python .\run_finetune_doc_classify.py --model_name_or_path .\tests\test_files\pr
 Use the battery paper classifier:
 ```python
 >>> from batterybert.extract import DocClassifier
->>> # Model name to be changed after published
+
+# Model name to be changed after published
 >>> model_name = "batterydata/test4"
 >>> sample_text = "sample text"
 >>> classifier = DocClassifier(model_name)
->>> # 0 for non-battery text, 1 for battery text
+
+# 0 for non-battery text, 1 for battery text
 >>> category = classifier.classify(sample_text)
 >>> print(category)
-=======================================================================================
+
 0
 ```
 
 Use the device data extractor:
 ```python
 >>> from batterybert.extract import DeviceDataExtractor
->>> # Model name to be changed after published
+
+# Model name to be changed after published
 >>> model_name = "batterydata/test1"
 >>> sample_text = "The anode of this Li-ion battery is graphite."
 >>> extractor = DeviceDataExtractor(model_name)
->>> # Set the confidence score threshold
+
+# Set the confidence score threshold
 >>> result = extractor.extract(sample_text, threshold=0.1)
 >>> print(result)
-=======================================================================================
+
 [{'type': 'anode', 'answer': 'grapite', 'score': 0.9736555218696594, 'context': 'The anode of this battery is grapite.'}]
 ```
 
