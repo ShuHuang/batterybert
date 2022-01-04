@@ -1,9 +1,9 @@
 # -*- coding: utf-8 -*-
 """
-batterybert.tests.test_dataset
+batterybert.tests.test_doc_classify
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-Test if a dataset is loaded correctly.
+Test binary battery text classifier
 author: Shu Huang (sh2009@cam.ac.uk)
 """
 import unittest
