@@ -24,8 +24,8 @@ class FinetuneModel:
 
     def get_config(self):
         """
-
-        :return:
+        Get BERTConfig
+        :return: BERTConfig
         """
         config = BertConfig.from_pretrained(self.config if self.config else self.model_name_or_path)
         return config

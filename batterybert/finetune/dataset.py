@@ -7,12 +7,71 @@ Prepare fine-tuning dataset
 coauthor: Shu Huang (sh2009@cam.ac.uk)
 coauthor: The HuggingFace Team
 """
+import torch
+import pandas as pd
 from datasets import load_dataset
 from .tokenizer import FinetuneTokenizerFast
 
 
-class FinetuneDataset:
+class FinetuneDataset(torch.utils.data.Dataset):
     pass
+
+
+class DocDataset(FinetuneDataset):
+    """
+    Document dataset
+    """
+    def __init__(self, encodings, labels):
+        self.encodings = encodings
+        self.labels = labels
+
+    def __getitem__(self, idx):
+        item = {k: torch.tensor(v[idx]) for k, v in self.encodings.items()}
+        item["labels"] = torch.tensor([self.labels[idx]])
+        return item
+
+    def __len__(self):
+        return len(self.labels)
+
+
+class PaperDataset(FinetuneDataset):
+    """
+    Document dataset
+    """
+    def __init__(self, model_root, training_root, eval_root):
+        self.model_root = model_root
+        self.training_root = training_root
+        self.test_root = eval_root
+
+    def get_dataset(self, max_length=512):
+        """
+        Get training data and eval data of the paper corpus.
+        :param max_length: max length of the tokenized text
+        :return: DocDataset of training data and eval data
+        """
+        tokenizer = FinetuneTokenizerFast(self.model_root).get_tokenizer()
+        training_data = pd.read_csv(self.training_root)
+        test_data = pd.read_csv(self.test_root)
+
+        if "abstract" not in training_data or "abstract" not in test_data:
+            raise ValueError("Need a valid dataset including abstract.")
+
+        training_data['abstract'] = training_data['abstract'].astype(str)
+        train_text = training_data['abstract'].values.tolist()
+        train_label = training_data['label'].to_numpy()
+
+        test_data['abstract'] = test_data['abstract'].astype(str)
+        test_text = test_data['abstract'].values.tolist()
+        test_label = test_data['label'].to_numpy()
+
+        train_encodings = tokenizer(train_text, truncation=True, padding=True, max_length=max_length)
+        valid_encodings = tokenizer(test_text, truncation=True, padding=True, max_length=max_length)
+
+        # convert our tokenized data into a torch Dataset
+        train_dataset = DocDataset(train_encodings, train_label)
+        eval_dataset = DocDataset(valid_encodings, test_label)
+
+        return train_dataset, eval_dataset
 
 
 class QADataset(FinetuneDataset):

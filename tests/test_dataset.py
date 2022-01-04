@@ -8,9 +8,10 @@ author: Shu Huang (sh2009@cam.ac.uk)
 """
 import os
 import unittest
-from batterybert.pretrain.dataset import PretrainDataset
-from batterybert.finetune.dataset import QADataset
+import torch
 from datasets import Dataset
+from batterybert.pretrain.dataset import PretrainDataset
+from batterybert.finetune.dataset import QADataset, PaperDataset
 
 
 class TestPretrainDataset(unittest.TestCase):
@@ -47,6 +48,18 @@ class TestQADataset(unittest.TestCase):
 
         # Assertion
         self.assertEqual(isinstance(eval_dataset, Dataset), True)
+
+
+class TestPaperDataset(unittest.TestCase):
+    def test_paper_dataset(self):
+        # Declaration
+        tokenizer_root = os.path.join(os.path.dirname(os.path.abspath(__file__)), "test_files/pretrain")
+        dataset = PaperDataset(tokenizer_root, training_root="test_files/doc/training_data.csv",
+                               eval_root="test_files/doc/test_data.csv")
+        train_dataset, eval_dataset = dataset.get_dataset()
+
+        # Assertion
+        self.assertEqual(isinstance(train_dataset, torch.utils.data.Dataset), True)
 
 
 if __name__ == '__main__':

@@ -29,7 +29,7 @@ class FinetuneTokenizerFast:
         Get the tokenizer
         :return: Tokenizer
         """
-        qa_tokenizer = BertTokenizerFast.from_pretrained(self.tokenizer, do_lower_case=self.do_lower_case,
-                                                         cache_dir=self.cache_root)
-        return qa_tokenizer
+        tokenizer = BertTokenizerFast.from_pretrained(self.tokenizer, do_lower_case=self.do_lower_case,
+                                                      cache_dir=self.cache_root)
+        return tokenizer
 
