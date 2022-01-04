@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 """
-batterybert.extract.extract_device
+batterybert.apps.qa
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 Extract the device material from the battery text.
 
@@ -37,10 +37,10 @@ class DeviceDataExtractor(QAModel):
     Device data extractor
     """
 
-    def extract(self, context, threshold=0, num_answer=1):
+    def extract(self, context, threshold=0, num_answer=3):
         """
         Extract the anode, cathode, and electrolyte data.
-        :param context: the contextual text to extract answers from
+        :param context: the contextual text to apps answers from
         :param threshold: confidence score threshold
         :param num_answer: number of returned answers
         :return:

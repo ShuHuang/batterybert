@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 """
-batterybert.extract.classify
+batterybert.apps.classify
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 Classify battery or non-battery text.
 

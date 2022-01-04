@@ -7,7 +7,7 @@ Test the device data extraction.
 author: Shu Huang (sh2009@cam.ac.uk)
 """
 import unittest
-from batterybert.extract import DeviceDataExtractor
+from batterybert.apps import DeviceDataExtractor
 
 
 class TestDeviceDataExtractor(unittest.TestCase):

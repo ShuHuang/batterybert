@@ -30,7 +30,7 @@ python .\run_finetune_doc_classify.py --model_name_or_path .\tests\test_files\pr
 ### Use the fine-tuned BatteryBERT
 Use the battery paper classifier:
 ```python
->>> from batterybert.extract import DocClassifier
+>>> from batterybert.apps import DocClassifier
 
 # Model name to be changed after published
 # Create a binary classifier
@@ -47,7 +47,7 @@ Use the battery paper classifier:
 
 Use the device data extractor:
 ```python
->>> from batterybert.extract import DeviceDataExtractor
+>>> from batterybert.apps import DeviceDataExtractor
 
 # Model name to be changed after published
 # Create a device data extractor
@@ -64,7 +64,7 @@ Use the device data extractor:
 
 Use the general Q&A agent:
 ```python
->>> from batterybert.extract import QAAgent
+>>> from batterybert.apps import QAAgent
 
 # Model name to be changed after published
 # Create a QA agent

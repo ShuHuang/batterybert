@@ -7,7 +7,7 @@ Test binary battery text classifier
 author: Shu Huang (sh2009@cam.ac.uk)
 """
 import unittest
-from batterybert.extract import DocClassifier
+from batterybert.apps import DocClassifier
 
 
 class TestDocClassifier(unittest.TestCase):
@@ -40,7 +40,7 @@ class TestDocClassifier(unittest.TestCase):
         # Declaration
         model_name = "batterydata/test4"
         non_battery_text = "The emergence of “big data” initiatives has led to the need for tools that can " \
-                           "automatically extract valuable chemical information from large volumes of unstructured " \
+                           "automatically apps valuable chemical information from large volumes of unstructured " \
                            "data, such as the scientific literature. Since chemical information can be present in " \
                            "figures, tables, and textual paragraphs, successful information extraction often " \
                            "depends on the ability to interpret all of these domains simultaneously. We present a " \

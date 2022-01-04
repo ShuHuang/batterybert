@@ -7,7 +7,7 @@ Test the Q&A agent
 author: Shu Huang (sh2009@cam.ac.uk)
 """
 import unittest
-from batterybert.extract import QAAgent
+from batterybert.apps import QAAgent
 
 
 class TestQAAgent(unittest.TestCase):
