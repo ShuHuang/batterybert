@@ -1,32 +1,22 @@
 # -*- coding: utf-8 -*-
 """
-run_finetune_qa
+run_finetune_doc_classify
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-BatteryBERT QA fine-tuning runner
+BatteryBERT sequence classification fine-tuning runner
 author: Shu Huang (sh2009@cam.ac.uk)
 """
 import os
 import sys
 import logging
 import argparse
-import transformers
-from transformers import Trainer, TrainingArguments, default_data_collator, EvalPrediction
 import datasets
-from datasets import load_metric
+import transformers
+from transformers import Trainer, TrainingArguments, default_data_collator
+from sklearn.metrics import accuracy_score
 from batterybert.finetune import DocClassModel, FinetuneTokenizerFast, PaperDataset
 
 logger = logging.getLogger(__name__)
-
-
-def compute_metrics(pred):
-    labels = pred.label_ids
-    preds = pred.predictions.argmax(-1)
-    # calculate accuracy using sklearn's function
-    acc = accuracy_score(labels, preds)
-    return {
-        'accuracy': acc,
-    }
 
 
 def parse_arguments():
@@ -97,6 +87,16 @@ def parse_arguments():
     cli_args, _ = aux_parser.parse_known_args()
 
     return args
+
+
+def compute_metrics(pred):
+    labels = pred.label_ids
+    preds = pred.predictions.argmax(-1)
+    acc = accuracy_score(labels, preds)
+    return {
+        'accuracy': acc,
+    }
+
 
 def main(args):
     """
