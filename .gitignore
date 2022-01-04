@@ -132,4 +132,3 @@ dmypy.json
 # My files
 tests/test_files/pretrain/
 tests/test_files/doc/
-batterybert/finetune/example.py

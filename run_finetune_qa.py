@@ -15,8 +15,7 @@ from transformers import TrainingArguments, default_data_collator, EvalPredictio
 import datasets
 from datasets import load_metric
 from batterybert.finetune import QAModel, FinetuneTokenizerFast, QADataset
-from batterybert.finetune.trainer_qa import QuestionAnsweringTrainer
-from batterybert.finetune.utils_qa import postprocess_qa_predictions
+from batterybert.finetune.utils import QuestionAnsweringTrainer, postprocess_qa_predictions
 
 logger = logging.getLogger(__name__)
 
