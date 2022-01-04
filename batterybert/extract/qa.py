@@ -9,9 +9,9 @@ author: Shu Huang (sh2009@cam.ac.uk)
 from transformers.pipelines import pipeline
 
 
-class DeviceDataExtractor:
+class QAModel:
     """
-    Device data extractor
+    Fine-tuned QA model
     """
     def __init__(self, model_name_or_path):
         """
@@ -20,12 +20,29 @@ class DeviceDataExtractor:
         """
         self.model = pipeline('question-answering', model=model_name_or_path, tokenizer=model_name_or_path)
 
-    def extract(self, context, threshold=0, num_answer=3):
-        """
 
-        :param context:
-        :param threshold:
-        :param num_answer:
+class QAAgent(QAModel):
+    """
+    General question answering agent
+    """
+    def answer(self, question, context, threshold=0, num_answer=1):
+        qa_input = {'question': question, 'context': context}
+        res = self.model(qa_input, top_k=num_answer)
+        if res['score'] > threshold:
+            return res
+
+
+class DeviceDataExtractor(QAModel):
+    """
+    Device data extractor
+    """
+
+    def extract(self, context, threshold=0, num_answer=1):
+        """
+        Extract the anode, cathode, and electrolyte data.
+        :param context: the contextual text to extract answers from
+        :param threshold: confidence score threshold
+        :param num_answer: number of returned answers
         :return:
         """
         answers = []

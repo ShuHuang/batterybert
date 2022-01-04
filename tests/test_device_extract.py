@@ -37,3 +37,8 @@ class TestDeviceDataExtractor(unittest.TestCase):
 
         # Assertion
         self.assertEqual(expected_answer, results)
+
+
+if __name__ == '__main__':
+    unittest.main()
+

@@ -56,3 +56,7 @@ class TestDocClassifier(unittest.TestCase):
 
         # Assertion
         self.assertEqual(category, 0)
+
+
+if __name__ == '__main__':
+    unittest.main()

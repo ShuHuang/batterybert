@@ -33,6 +33,7 @@ Use the battery paper classifier:
 >>> from batterybert.extract import DocClassifier
 
 # Model name to be changed after published
+# Create a binary classifier
 >>> model_name = "batterydata/test4"
 >>> sample_text = "sample text"
 >>> classifier = DocClassifier(model_name)
@@ -49,6 +50,7 @@ Use the device data extractor:
 >>> from batterybert.extract import DeviceDataExtractor
 
 # Model name to be changed after published
+# Create a device data extractor
 >>> model_name = "batterydata/test1"
 >>> sample_text = "The anode of this Li-ion battery is graphite."
 >>> extractor = DeviceDataExtractor(model_name)
@@ -60,5 +62,22 @@ Use the device data extractor:
 [{'type': 'anode', 'answer': 'grapite', 'score': 0.9736555218696594, 'context': 'The anode of this battery is grapite.'}]
 ```
 
+Use the general Q&A agent:
+```python
+>>> from batterybert.extract import QAAgent
+
+# Model name to be changed after published
+# Create a QA agent
+>>> model_name = "batterydata/test1"
+>>> context = "The University of Cambridge is a collegiate research university in Cambridge, United Kingdom. Founded in 1209 and granted a royal charter by Henry III in 1231, Cambridge is the second-oldest university in the English-speaking world and the world's fourth-oldest surviving university."
+>>> question = "When was University of Cambridge founded?"
+>>> qa_agent = QAAgent(model_name)
+
+# Set the confidence score threshold
+>>> result = qa_agent.answer(question=question, context=context, threshold=0.1)
+>>> print(result)
+
+{'score': 0.9867061972618103, 'start': 105, 'end': 109, 'answer': '1209'}
+```
 ## Citing
 BatteryBERT: A Pre-trained Language Model for Battery Database Enhancement

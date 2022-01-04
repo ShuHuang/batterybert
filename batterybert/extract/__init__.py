@@ -6,5 +6,5 @@ batterybert.extract.__init__
 author: Shu Huang (sh2009@cam.ac.uk)
 """
 from .classify import DocClassifier
-from .extract_device import DeviceDataExtractor
+from .qa import DeviceDataExtractor, QAAgent
 
