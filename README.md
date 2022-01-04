@@ -12,9 +12,9 @@ BatteryBERT Pre-training & Fine-tuning: Question Answering, Document Classificat
 
 ## Example Usage
 ### Run pre-training
+TODO: change the path for all the command
 ```
-python run_pretrain.py --train_root 'tests/test_files/test_text_example.txt' --eval_root 'tests/test_files/test_text_example.txt' --output_dir 'tests/test_files/pretrain/' --tokenizer_root 'tests
-/test_files/vocab.txt' --checkpoint='tests/test_files/pretrain'
+python run_pretrain.py --train_root 'tests/test_files/test_text_example.txt' --eval_root 'tests/test_files/test_text_example.txt' --output_dir 'tests/test_files/pretrain/' --tokenizer_root 'tests/test_files/vocab.txt' --checkpoint='tests/test_files/pretrain'
 ```
 
 ###Run fine-tuning

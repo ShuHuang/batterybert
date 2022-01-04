@@ -13,9 +13,8 @@ from batterybert.pretrain.tokenizer import PretrainTokenizer
 from batterybert.finetune.tokenizer import QATokenizer
 
 
-
 class TestPretrainTokenizer(unittest.TestCase):
-    def test_tokenizer(self):
+    def test_pretrain_tokenizer(self):
         # Declaration
         tokenizer_root = os.path.join(os.path.dirname(os.path.abspath(__file__)), "test_files/vocab.txt")
         pretrain_tokenizer = PretrainTokenizer(tokenizer_root=tokenizer_root)
@@ -26,7 +25,7 @@ class TestPretrainTokenizer(unittest.TestCase):
 
 
 class TestQATokenizer(unittest.TestCase):
-    def test_tokenizer(self):
+    def test_qa_tokenizer(self):
         # Declaration
         tokenizer_root = os.path.join(os.path.dirname(os.path.abspath(__file__)), "test_files/pretrain")
         qa_tokenizer = QATokenizer(tokenizer_root)

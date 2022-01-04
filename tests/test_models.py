@@ -12,7 +12,7 @@ from batterybert.finetune.models import QAModel
 
 
 class TestLMModel(unittest.TestCase):
-    def test_bertmodel(self):
+    def test_bert_model(self):
         # Declaration
         model_name = 'bert-base-cased'
         pretrain_model = PretrainModel(model_name)
@@ -26,7 +26,7 @@ class TestLMModel(unittest.TestCase):
 
 
 class TestQAModel(unittest.TestCase):
-    def test_qamodel(self):
+    def test_qa_model(self):
         # Declaration
         model_name = 'batterydata/test1'
         pretrain_model = QAModel(model_name)

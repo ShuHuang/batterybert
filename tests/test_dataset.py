@@ -30,7 +30,7 @@ class TestPretrainDataset(unittest.TestCase):
 
 
 class TestQADataset(unittest.TestCase):
-    def test_train_dataset(self):
+    def test_qa_train_dataset(self):
         # Declaration
         tokenizer_root = os.path.join(os.path.dirname(os.path.abspath(__file__)), "test_files/pretrain")
         dataset = QADataset(tokenizer_root)
@@ -39,7 +39,7 @@ class TestQADataset(unittest.TestCase):
         # Assertion
         self.assertEqual(isinstance(train_dataset, Dataset), True)
 
-    def test_eval_dataset(self):
+    def test_qa_eval_dataset(self):
         # Declaration
         tokenizer_root = os.path.join(os.path.dirname(os.path.abspath(__file__)), "test_files/pretrain")
         dataset = QADataset(tokenizer_root)

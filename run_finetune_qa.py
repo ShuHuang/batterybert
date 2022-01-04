@@ -7,12 +7,18 @@ BatteryBERT QA fine-tuning runner
 author: Shu Huang (sh2009@cam.ac.uk)
 """
 import os
+import sys
+import logging
 import argparse
-from transformers import TrainingArguments, Trainer, default_data_collator, EvalPrediction
+import transformers
+from transformers import TrainingArguments, default_data_collator, EvalPrediction
+import datasets
 from datasets import load_metric
 from batterybert.finetune import QAModel, QATokenizer, QADataset
 from batterybert.finetune.trainer_qa import QuestionAnsweringTrainer
 from batterybert.finetune.utils_qa import postprocess_qa_predictions
+
+logger = logging.getLogger(__name__)
 
 
 def parse_arguments():
@@ -91,9 +97,6 @@ def parse_arguments():
 
 # Post-processing:
 def post_processing_function(examples, features, predictions, stage="eval"):
-    """
-
-    """
     # Post-processing: we match the start logits and end logits to answers in the original context.
     predictions = postprocess_qa_predictions(
         examples=examples,
@@ -119,8 +122,14 @@ def main(args):
     """
     Run pretraining
     :param args: parsed arguments
-    :return:
     """
+    # Setup logging
+    logging.basicConfig(
+        format="%(asctime)s - %(levelname)s - %(name)s - %(message)s",
+        datefmt="%m/%d/%Y %H:%M:%S",
+        handlers=[logging.StreamHandler(sys.stdout)],
+    )
+
     tokenizer = QATokenizer(args.model_name_or_path).get_tokenizer()
     train_dataset = QADataset(args.model_name_or_path).get_train_dataset()
     eval_dataset = QADataset(args.model_name_or_path).get_eval_dataset()
@@ -157,7 +166,22 @@ def main(args):
         compute_metrics=compute_metrics,
     )
 
+    log_level = training_args.get_process_log_level()
+    logger.setLevel(log_level)
+    datasets.utils.logging.set_verbosity(log_level)
+    transformers.utils.logging.set_verbosity(log_level)
+    transformers.utils.logging.enable_default_handler()
+    transformers.utils.logging.enable_explicit_format()
+
+    # Log on each process the small summary:
+    logger.warning(
+        f"Process rank: {training_args.local_rank}, device: {training_args.device}, n_gpu: {training_args.n_gpu}"
+        + f"distributed training: {bool(training_args.local_rank != -1)}, 16-bits training: {training_args.fp16}"
+    )
+    logger.info(f"Training/evaluation parameters {training_args}")
+
     if args.do_train:
+        logger.info("*** Train ***")
         train_result = trainer.train()
         trainer.save_model()
 
