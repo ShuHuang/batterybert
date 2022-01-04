@@ -11,13 +11,13 @@ BatteryBERT Pre-training & Fine-tuning: Question Answering, Document Classificat
 ## Installation
 
 ## Example Usage
-### Run pre-training
+### Pre-train the BatteryBERT model
 TODO: change the path for all the command
 ```
 python run_pretrain.py --train_root 'tests/test_files/test_text_example.txt' --eval_root 'tests/test_files/test_text_example.txt' --output_dir 'tests/test_files/pretrain/' --tokenizer_root 'tests/test_files/vocab.txt' --checkpoint='tests/test_files/pretrain'
 ```
 
-### Run fine-tuning
+### Fine-tune the BatteryBERT model
 Run fine-tuning: question answering:
 ```
 python .\run_finetune_qa.py --model_name_or_path .\tests\test_files\pretrain\ --output_dir .\tests\test_files\qa\ --do_train True --do_eval False
@@ -27,5 +27,19 @@ Run fine-tuning: document classification
 ```
 python .\run_finetune_doc_classify.py --model_name_or_path .\tests\test_files\pretrain\ --output_dir .\tests\test_files\doc\ --train_root .\tests\test_files\doc\training_data.csv --eval_root .\tests\test_files\doc\test_data.csv
 ```
+### Use the document classifier
+```python
+>>> from batterybert.extract import DocClassifier
+# Model name to be changed after published
+>>> model_name = "batterydata/test4"
+>>> sample_text = "sample text"
+>>> classifier = DocClassifier(model_name)
+# 0 for non-battery text, 1 for battery text
+>>> category = classifier.classify(sample_text)
+>>> print(category)
+=======================================================================================
+0
+```
+
 ## Citing
 BatteryBERT: A Pre-trained Language Model for Battery Database Enhancement
