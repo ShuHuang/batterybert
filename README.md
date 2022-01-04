@@ -18,9 +18,14 @@ python run_pretrain.py --train_root 'tests/test_files/test_text_example.txt' --e
 ```
 
 ###Run fine-tuning
-Run question answering:
+Run fine-tuning: question answering:
 ```
- python .\run_finetune_qa.py --model_name_or_path .\tests\test_files\pretrain\ --output_dir .\tests\test_files\qa\ --do_train True --do_eval False
+python .\run_finetune_qa.py --model_name_or_path .\tests\test_files\pretrain\ --output_dir .\tests\test_files\qa\ --do_train True --do_eval False
+```
+
+Run fine-tuning: document classification
+```
+python .\run_finetune_doc_classify.py --model_name_or_path .\tests\test_files\pretrain\ --output_dir .\tests\test_files\doc\ --train_root .\tests\test_files\doc\training_data.csv --eval_root .\tests\test_files\doc\test_data.csv
 ```
 ## Citing
 BatteryBERT: A Pre-trained Language Model for Battery Database Enhancement

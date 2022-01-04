@@ -39,6 +39,13 @@ class PaperDataset(FinetuneDataset):
     Document dataset
     """
     def __init__(self, model_root, training_root, eval_root):
+        """
+
+        :param model_root: pre-trained model
+        :param training_root: training set of the paper corpus.
+               csv format (columns: doi,date,year,title,journal,abstract,has_full_text,label).
+        :param eval_root: validation set of the paper corpus. Same format as training set.
+        """
         self.model_root = model_root
         self.training_root = training_root
         self.test_root = eval_root

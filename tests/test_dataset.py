@@ -54,8 +54,10 @@ class TestPaperDataset(unittest.TestCase):
     def test_paper_dataset(self):
         # Declaration
         tokenizer_root = os.path.join(os.path.dirname(os.path.abspath(__file__)), "test_files/pretrain")
-        dataset = PaperDataset(tokenizer_root, training_root="test_files/doc/training_data.csv",
-                               eval_root="test_files/doc/test_data.csv")
+        dataset = PaperDataset(tokenizer_root, training_root=os.path.join(os.path.dirname(os.path.abspath(__file__)),
+                                                                          "test_files/doc/training_data.csv"),
+                               eval_root=os.path.join(os.path.dirname(os.path.abspath(__file__)),
+                                                      "test_files/doc/test_data.csv"))
         train_dataset, eval_dataset = dataset.get_dataset()
 
         # Assertion

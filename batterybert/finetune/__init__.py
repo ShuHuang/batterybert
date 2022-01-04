@@ -5,6 +5,6 @@ batterybert.finetune.__init__
 
 author: Shu Huang (sh2009@cam.ac.uk)
 """
-from .dataset import QADataset
-from .models import QAModel
+from .dataset import QADataset, PaperDataset
+from .models import QAModel, DocClassModel
 from .tokenizer import FinetuneTokenizerFast
