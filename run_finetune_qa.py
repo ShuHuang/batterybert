@@ -14,7 +14,7 @@ import transformers
 from transformers import TrainingArguments, default_data_collator, EvalPrediction
 import datasets
 from datasets import load_metric
-from batterybert.finetune import QAModel, QATokenizer, QADataset
+from batterybert.finetune import QAModel, FinetuneTokenizerFast, QADataset
 from batterybert.finetune.trainer_qa import QuestionAnsweringTrainer
 from batterybert.finetune.utils_qa import postprocess_qa_predictions
 
@@ -130,7 +130,7 @@ def main(args):
         handlers=[logging.StreamHandler(sys.stdout)],
     )
 
-    tokenizer = QATokenizer(args.model_name_or_path).get_tokenizer()
+    tokenizer = FinetuneTokenizerFast(args.model_name_or_path).get_tokenizer()
     train_dataset = QADataset(args.model_name_or_path).get_train_dataset()
     eval_dataset = QADataset(args.model_name_or_path).get_eval_dataset()
     model = QAModel(args.model_name_or_path).get_model()

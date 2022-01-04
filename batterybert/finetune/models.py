@@ -6,19 +6,12 @@ batterybert.finetune.models
 Prepare fine-tuning models
 author: Shu Huang (sh2009@cam.ac.uk)
 """
-from transformers import BertConfig, BertForQuestionAnswering
+from transformers import BertConfig, BertForQuestionAnswering, BertForSequenceClassification
 
 
 class FinetuneModel:
     """
-
-    """
-    pass
-
-
-class QAModel(FinetuneModel):
-    """
-    QA model of BatteryBERT.
+    Models for fine-tuning.
     """
     def __init__(self, model_name_or_path, config=None):
         """
@@ -37,10 +30,28 @@ class QAModel(FinetuneModel):
         config = BertConfig.from_pretrained(self.config if self.config else self.model_name_or_path)
         return config
 
+
+class QAModel(FinetuneModel):
+    """
+    QA model of BatteryBERT.
+    """
     def get_model(self):
         """
-        MaskedLM BERT model
+        BERTForQuestionAnswering model
         :return: BERTForQuestionAnswering class
         """
         model = BertForQuestionAnswering(self.get_config())
+        return model
+
+
+class DocClassModel(FinetuneModel):
+    """
+    Document classification model of BatteryBERT.
+    """
+    def get_model(self):
+        """
+        BertForSequenceClassification
+        :return: BertForSequenceClassification class
+        """
+        model = BertForSequenceClassification(self.get_config())
         return model

@@ -10,7 +10,7 @@ import os
 import unittest
 from transformers import PreTrainedTokenizer, PreTrainedTokenizerFast
 from batterybert.pretrain.tokenizer import PretrainTokenizer
-from batterybert.finetune.tokenizer import QATokenizer
+from batterybert.finetune.tokenizer import FinetuneTokenizerFast
 
 
 class TestPretrainTokenizer(unittest.TestCase):
@@ -24,15 +24,15 @@ class TestPretrainTokenizer(unittest.TestCase):
         self.assertTrue(isinstance(tokenizer, PreTrainedTokenizer))
 
 
-class TestQATokenizer(unittest.TestCase):
-    def test_qa_tokenizer(self):
+class TestFinetuneTokenizerFast(unittest.TestCase):
+    def test_finetune_tokenizer(self):
         # Declaration
         tokenizer_root = os.path.join(os.path.dirname(os.path.abspath(__file__)), "test_files/pretrain")
-        qa_tokenizer = QATokenizer(tokenizer_root)
-        tokenizer = qa_tokenizer.get_tokenizer()
+        tokenizer = FinetuneTokenizerFast(tokenizer_root)
+        final_tokenizer = tokenizer.get_tokenizer()
 
         # Assertion
-        self.assertTrue(isinstance(tokenizer, PreTrainedTokenizerFast))
+        self.assertTrue(isinstance(final_tokenizer, PreTrainedTokenizerFast))
 
 
 if __name__ == '__main__':

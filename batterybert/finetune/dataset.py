@@ -8,7 +8,7 @@ coauthor: Shu Huang (sh2009@cam.ac.uk)
 coauthor: The HuggingFace Team
 """
 from datasets import load_dataset
-from .tokenizer import QATokenizer
+from .tokenizer import FinetuneTokenizerFast
 
 
 class FinetuneDataset:
@@ -96,7 +96,6 @@ class QADataset(FinetuneDataset):
         )
         return eval_dataset
 
-
     # Training preprocessing
     def prepare_train_features(self, examples, max_seq_length=384, stride=128, pad_to_max_length=True):
         """
@@ -114,7 +113,7 @@ class QADataset(FinetuneDataset):
         # Tokenize our examples with truncation and maybe padding, but keep the overflows using a stride. This results
         # in one example possible giving several features when a context is long, each of those features having a
         # context that overlaps a bit the context of the previous feature.
-        tokenizer = QATokenizer(self.model_root).get_tokenizer()
+        tokenizer = FinetuneTokenizerFast(self.model_root).get_tokenizer()
         pad_on_right = tokenizer.padding_side == "right"
         tokenized_examples = tokenizer(
             examples["question" if pad_on_right else "context"],
@@ -197,7 +196,7 @@ class QADataset(FinetuneDataset):
         # Remove the left whitespace
         examples["question"] = [q.lstrip() for q in examples["question"]]
 
-        tokenizer = QATokenizer(self.model_root).get_tokenizer()
+        tokenizer = FinetuneTokenizerFast(self.model_root).get_tokenizer()
         pad_on_right = tokenizer.padding_side == "right"
         tokenized_examples = tokenizer(
             examples["question" if pad_on_right else "context"],
