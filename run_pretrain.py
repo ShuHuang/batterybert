@@ -88,25 +88,6 @@ def parse_arguments():
     return args
 
 
-def get_training_args(args):
-    """
-    Get training arguments
-    """
-    training_args = TrainingArguments(
-        output_dir=args.output_dir,
-        overwrite_output_dir=args.overwrite_output_dir,
-        num_train_epochs=args.num_train_epochs,
-        per_device_train_batch_size=args.per_device_train_batch_size,
-        save_steps=args.save_steps,
-        prediction_loss_only=args.prediction_loss_only,
-        no_cuda=args.no_cuda,
-        evaluation_strategy=args.evaluation_strategy,
-        learning_rate=args.learning_rate,
-        weight_decay=args.weight_decay,
-    )
-    return training_args
-
-
 def main(args):
     """
     Run pretraining
@@ -119,7 +100,18 @@ def main(args):
     model.resize_token_embeddings(len(tokenizer))
     data_collator = DataCollatorForLanguageModeling(tokenizer=tokenizer, mlm_probability=args.mlm_probability)
 
-    training_args = get_training_args(args)
+    training_args = TrainingArguments(
+        output_dir=args.output_dir,
+        overwrite_output_dir=args.overwrite_output_dir,
+        num_train_epochs=args.num_train_epochs,
+        per_device_train_batch_size=args.per_device_train_batch_size,
+        save_steps=args.save_steps,
+        prediction_loss_only=args.prediction_loss_only,
+        no_cuda=args.no_cuda,
+        evaluation_strategy=args.evaluation_strategy,
+        learning_rate=args.learning_rate,
+        weight_decay=args.weight_decay,
+    )
     trainer = Trainer(
         model=model,
         args=training_args,
