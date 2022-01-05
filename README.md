@@ -6,7 +6,7 @@ BatteryBERT Pre-training & Fine-tuning: Question Answering, Document Classificat
 - BatteryBERT Usage: Document Classifier, Device Data Extractor, General Q&A Agent
 - BatteryBERT Pre-training: Masked Language Modelling
 - BatteryBERT Fine-tuning: Sequence Classification + Question Answering
-- Device-classified Data Extraction and Database Enhancement
+- Large-scale Device Data Extraction and Database Enhancement
 
 ## Installation
 Run the following commands to clone the repository and install batterybert:
@@ -15,8 +15,8 @@ $ git clone https://github.com/ShuHuang/batterybert.git
 $ cd batterybert; pip install -r requirements.txt; python setup.py develop
 ```
 
-## Example Usage
-### Fine-tuned BatteryBERT Usage
+## Usage
+### BatteryBERT Usage
 Use the battery paper classifier:
 ```python
 >>> from batterybert.apps import DocClassifier
