@@ -11,13 +11,13 @@ BatteryBERT: A Pre-trained Language Model for Battery Database Enhancement
 ## Installation
 Run the following commands to clone the repository and install batterybert:
 ```shell
-$ git clone https://github.com/ShuHuang/batterybert.git
-$ cd batterybert; pip install -r requirements.txt; python setup.py develop
+git clone https://github.com/ShuHuang/batterybert.git
+cd batterybert; pip install -r requirements.txt; python setup.py develop
 ```
 
 ## Usage
 ### BatteryBERT Pre-training
-Run pre-training:
+#### Run pre-training:
 
 Pre-training from scratch or further training using a masked language modeling (MLM) loss.  See `python run_pretraining.py --help` for a full list of arguments and their defaults.
 ```shell
@@ -28,7 +28,7 @@ python run_pretrain.py \
     --tokenizer_root $TOEKNIZER_ROOT \
     --checkpoint=$CHECKPOINT_DIR 
 ```
-Create a new WordPiece tokenizer:
+#### Create a new WordPiece tokenizer:
 
 Train a WordPiece tokenizer from scratch using the dataset from `$TRAIN_ROOT`. See `python run_tokenizer.py --help` for a full list of arguments and their defaults.
 ```shell
@@ -38,7 +38,7 @@ python run_tokenizer.py \
     --save_name $TOKENIZER_NAME
 ```
 ### BatteryBERT Fine-tuning
-Run fine-tuning: question answering. 
+#### Run fine-tuning (question answering):
 
 Fine-tune a BERT model on a question answering dataset (e.g. SQuAD). See `python run_finetune_qa.py --help` for a full list of arguments and their defaults.
 ```shell
@@ -49,7 +49,7 @@ python run_finetune_qa.py
     --do_eval $DO_EVAL
 ```
 
-Run fine-tuning: document classification. 
+#### Run fine-tuning (document classification):
 
 Fine-tune a BERT model on a sequence classification dataset (e.g. paper corpus). See `python run_finetune_doc_classify.py --help` for a full list of arguments and their defaults.
 ```shell
@@ -61,7 +61,7 @@ $ python run_finetune_doc_classify.py
 ```
 
 ### BatteryBERT Usage
-Use the battery paper classifier:
+#### Use the battery paper classifier:
 ```python
 >>> from batterybert.apps import DocClassifier
 
@@ -78,7 +78,7 @@ Use the battery paper classifier:
 0
 ```
 
-Use the device data extractor:
+#### Use the device data extractor:
 ```python
 >>> from batterybert.apps import DeviceDataExtractor
 
@@ -95,7 +95,7 @@ Use the device data extractor:
 [{'type': 'anode', 'answer': 'grapite', 'score': 0.9736555218696594, 'context': 'The anode of this battery is grapite.'}]
 ```
 
-Use the general Q&A agent:
+#### Use the general Q&A agent:
 ```python
 >>> from batterybert.apps import QAAgent
 
