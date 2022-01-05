@@ -17,7 +17,7 @@ $ cd batterybert; pip install -r requirements.txt; python setup.py develop
 
 ## Usage
 ### BatteryBERT Pre-training
-Run pre-training
+Run pre-training:
 
 Pre-training from scratch or further training using a masked language modeling (MLM) loss.  See `python run_pretraining.py --help` for a full list of arguments and their defaults.
 ```shell
@@ -28,7 +28,7 @@ python run_pretrain.py \
     --tokenizer_root $TOEKNIZER_ROOT \
     --checkpoint=$CHECKPOINT_DIR 
 ```
-Create a new WordPiece tokenizer
+Create a new WordPiece tokenizer:
 
 Train a WordPiece tokenizer from scratch using the dataset from `$TRAIN_ROOT`. See `python run_tokenizer.py --help` for a full list of arguments and their defaults.
 ```shell
