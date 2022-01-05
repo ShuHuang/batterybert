@@ -1,0 +1,26 @@
+Among rechargeable batteries, the lithium–sulfur (Li–S) battery is well known for high energy density (theoretical capac
+ity of 1672 mA h g−1) and relative light weight.112 Compared with conventional lithium-ion batteries, lithium–sulfur bat
+teries are lower cost due to the use of sulfur.113–115 The Li–S battery has recently attracted attention due to its high
+ theoretical specific energy of 2600 Wh kg−1, which is about five times higher than that of common LIB.116,117 The react
+ion process between electrode and electrolyte contains the dissolution of Li+ moving between the cathode surface and ano
+de during discharging and charging as shown in Fig. 18. As is well known, the single host ion only combines 0.5–0.7 lith
+ium ions in LIB, while each sulfur atom unites with two lithium ions. Nevertheless, compared to LIB, Li–S has volume exp
+ansion–shrinkage as well, which could cause mechanical tension on the electrode and lead to reduced electrochemical conn
+ection and hindered flow of Li+. Moreover, charge carriers can only diffuse on material surfaces because of poor electri
+cal insulating of sulfur (5 × 10−30 S cm−1 at 25 °C).118 In addition, the dissolved polysulfides deposits on the anode,
+reduces to Li2S and Li2S2, which always lead to low coulombic efficiency, poor cycling stability and irretrievable capac
+ity fading.119 At present researchers are trying to address these challenges (e.g., electrochemical conductivity and the
+ dissolution of Li2Sx (2 ≤ x ≤ 8)) through various solutions.120 As a metal oxide, zinc oxide and its composite make a s
+ignificant contribution to Li–S batteries.121–123 Therefore, recent typical applications of zinc oxide-based nanomateria
+ls in the Li–S battery are reviewed in the following paragraphs (Fig. 15).124,125
+Finding a solution to improve the poor electronic conductivity is a big challenge for Li–S battery. In order to address
+this issue, sulfur is usually dispersed in a conductive matrix such as conductive polymers and carbon nanomaterials. Lia
+ng et al.126 used a classic two-step method consisting of hydrothermal procedure and heating treatment to make ZnO porou
+s nanostructures. The synthesized S/ZnO composite material was heat treated at the temperature of 155 °C. They found tha
+t the size of composite material was lighter than pure ZnO material because the former only absorbed sulfur on the surfa
+ce. Moreover, compared to pure S, the S/ZnO composite showed good cycling stability and high discharge capacity of 1414
+mA h g−1. After 100 cycles, 662 mA h g−1 capacity was maintained at current density of 335 mA g−1, which is much better
+than pure S (470 mA h g−1 for the initial cycle and 169 mA h g−1 after 100 cycles). Surprisingly, the obtained columbic
+efficiency was up to 97%. The combination with zinc oxide increases conductivity as the insulating property of sulfur an
+d its reduced products (Li2S/Li2S2). in addition, the dissolution of polysulfides (Li2Sn, 4 ≤ n ≤ 8) can be reduced effe
+ctively (Table 3).

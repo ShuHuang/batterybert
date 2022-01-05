@@ -9,23 +9,35 @@ BatteryBERT Pre-training & Fine-tuning: Question Answering, Document Classificat
 - Data extraction and database enhancement
 
 ## Installation
+Run the following commands to clone the repository and install batterybert:
+```shell
+$ git clone https://github.com/ShuHuang/batterybert.git
+$ cd batterybert; pip install -r requirements.txt; python setup.py develop
+```
 
 ## Example Usage
 ### BatteryBERT Pre-training
-TODO: change the path for all the command
+##### Run pre-training
+See `python run_pretraining.py --help` for a full list of arguments and their defaults.
+```shell
+$ python run_pretrain.py --train_root $TRAIN_ROOT --eval_root $EVAL_ROOT --output_dir $OUTPUT_DIR --tokenizer_root $TOEKNIZER_ROOT --checkpoint=$CHECKPOINT_DIR
 ```
-python run_pretrain.py --train_root 'tests/test_files/test_text_example.txt' --eval_root 'tests/test_files/test_text_example.txt' --output_dir 'tests/test_files/pretrain/' --tokenizer_root 'tests/test_files/vocab.txt' --checkpoint='tests/test_files/pretrain'
+##### Create a new WordPiece tokenizer
+See `python run_tokenizer.py --help` for a full list of arguments and their defaults.
+```shell
+$ python run_tokenizer.py --train_root $TRAIN_DIR --save_root $SAVE_DIR --save_name $TOKENIZER_NAME
 ```
-
 ### BatteryBERT Fine-tuning
-Run fine-tuning: question answering
-```
-python .\run_finetune_qa.py --model_name_or_path .\tests\test_files\pretrain\ --output_dir .\tests\test_files\qa\ --do_train True --do_eval False
+##### Run fine-tuning: question answering
+See `python run_finetune_qa.py --help` for a full list of arguments and their defaults.
+```shell
+$ python run_finetune_qa.py --model_name_or_path $MODEL_NAME_OR_PATH --output_dir $OUTPUT_DIR --do_train True --do_eval $DO_EVAL
 ```
 
-Run fine-tuning: document classification
-```
-python .\run_finetune_doc_classify.py --model_name_or_path .\tests\test_files\pretrain\ --output_dir .\tests\test_files\doc\ --train_root .\tests\test_files\doc\training_data.csv --eval_root .\tests\test_files\doc\test_data.csv
+##### Run fine-tuning: document classification
+See `python run_finetune_doc_classify.py --help` for a full list of arguments and their defaults.
+```shell
+$ python run_finetune_doc_classify.py --model_name_or_path $MODEL_NAME_OR_PATH --output_dir $OUTPUT_DIR --train_root $TRAIN_ROOT --eval_root EVAL_ROOT
 ```
 ### Use the fine-tuned BatteryBERT
 Use the battery paper classifier:
@@ -79,5 +91,6 @@ Use the general Q&A agent:
 
 {'score': 0.9867061972618103, 'start': 105, 'end': 109, 'answer': '1209'}
 ```
+
 ## Citing
 BatteryBERT: A Pre-trained Language Model for Battery Database Enhancement

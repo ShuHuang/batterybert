@@ -1,0 +1,30 @@
+While highly active anti-retroviral therapy (HAART) has proven an effective way to control viral loads within the periph
+eral blood compartment, it is less able to control replication in reservoirs such as the brain. The Drexel Medicine CNS
+AIDS Research and Eradication Study (CARES) cohort has tracked more than 500 patients longitudinally with a subset of pa
+tients that have been followed for more the 10 well-controlled visits spanning more than 7 years. The LTR and Tat exon 1
+ region of these patients were examined using the Bayesian Evolutionary Analysis Sampling Trees (BEAST) program to exami
+ne underlying phylogenetic progression of their viral population. Patients were found to have a basal level genetic drif
+t despite undetectable viral loads. As a result of this analysis the detected drift ranged from 0.2 to 2 bases per 100 n
+ucleotides per year and was unique for each patient. Phylogenetic analysis of these patients revealed that sequence vari
+ation between sequential visits may be due in part to differential activation of latent proviral DNA quasispecies and/or
+ low level viral replication in various reservoirs that may occur even in well-controlled patient populations over prolo
+nged time and ultimately detected in the peripheral blood compartment. Further analysis with viral deep sequencing acros
+s longitudinal samples across the entire viral genome is expected to reveal a more exacting view of the rate and overall
+ nature of genetic drift even in well-controlled HIV-1-infected patients.
+Supported by This work is supported by NIH/NINDS R01 NS32092, NIDA R01 DA19807, NIMH P30 MH092177, NIMH T32 MH079785 awa
+rded to BW and R01 NS
+Dave, S, Ph.D.1, Yu, C, Ph.D.2, Seaton, M, BS2, Chen, L, Ph.D.1, Khodr, C, Ph.D.1, Al-Harthi, L, Ph.D.2, Hu, XT, MD, Ph.
+D.1; 1Department of Pharmacology, Rush University Medical Center, Chicago, IL, 60612 United States. 2Department of Immun
+ology and Microbiology, Rush University Medical Center, Chicago, IL, 60612 United States.
+Methamphetamine (Meth) is a potent and commonly abused psychostimulant. Exposure to Meth induces decreased neuronal acti
+vity in the medial prefrontal cortex and nucleus accumbens which are implicated in addiction; but it is unknown if such
+a decrease results from alterations in synaptic/intrinsic excitability of neurons or changes in extracellular environmen
+t (e.g., glutamate and K+ levels) mediated by surrounding astrocytes. To fill this knowledge gap, we assessed the effect
+s of Meth on functional activity of certain voltage-gated ion channels in the cell membrane of primary human fetal astro
+cytes (HFA) using whole-cell voltage-clamp recording. We found that HFA displayed a large out-flowing voltage-gated K+ c
+urrent (VGKC, a characteristic of immature or reactive astrocytes), while voltage-gated Ca2+ currents were not seen. Fur
+ther, exposure of HFA to Meth (300 μM, 3–6 h) induced a significant depolarization of the resting membrane potential (RM
+P) and reduction of VGKC in the range of +70 to 100 mV in comparison to untreated HFAs (both p < 0.05). Our findings dem
+onstrate that Meth disturbs HFA activity by altering RMP and VGKC. Because a Meth-induced decrease of K+ out-flow from a
+strocytes can consequentially reduce local extracellular K+ levels, such a reduction could ultimately lead to a decrease
+d excitability in neurons surrounded by these astrocytes.
