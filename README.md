@@ -3,9 +3,9 @@ BatteryBERT: A Pre-trained Language Model for Battery Database Enhancement
 
 ## Features
 
-- BatteryBERT Usage: Document Classifier, Device Data Extractor, General Q&A Agent
-- BatteryBERT Pre-training: Masked Language Modelling
+- BatteryBERT Pre-training: Pre-training from Scratch or Further Training
 - BatteryBERT Fine-tuning: Sequence Classification + Question Answering
+- BatteryBERT Usage: Document Classifier, Device Data Extractor, General Q&A Agent
 - Large-scale Device Data Extraction and Database Enhancement
 
 ## Installation
@@ -16,6 +16,50 @@ $ cd batterybert; pip install -r requirements.txt; python setup.py develop
 ```
 
 ## Usage
+### BatteryBERT Pre-training
+Run pre-training
+
+Pre-training from scratch or further training using a masked language modeling (MLM) loss.  See `python run_pretraining.py --help` for a full list of arguments and their defaults.
+```shell
+python run_pretrain.py \
+    --train_root $TRAIN_ROOT \
+    --eval_root $EVAL_ROOT \
+    --output_dir $OUTPUT_DIR \
+    --tokenizer_root $TOEKNIZER_ROOT \
+    --checkpoint=$CHECKPOINT_DIR 
+```
+Create a new WordPiece tokenizer
+
+Train a WordPiece tokenizer from scratch using the dataset from `$TRAIN_ROOT`. See `python run_tokenizer.py --help` for a full list of arguments and their defaults.
+```shell
+python run_tokenizer.py \
+    --train_root $TRAIN_DIR \
+    --save_root $SAVE_DIR \
+    --save_name $TOKENIZER_NAME
+```
+### BatteryBERT Fine-tuning
+Run fine-tuning: question answering. 
+
+Fine-tune a BERT model on a question answering dataset (e.g. SQuAD). See `python run_finetune_qa.py --help` for a full list of arguments and their defaults.
+```shell
+python run_finetune_qa.py 
+    --model_name_or_path $MODEL_NAME_OR_PATH \
+    --output_dir $OUTPUT_DIR \
+    --do_train True \
+    --do_eval $DO_EVAL
+```
+
+Run fine-tuning: document classification. 
+
+Fine-tune a BERT model on a sequence classification dataset (e.g. paper corpus). See `python run_finetune_doc_classify.py --help` for a full list of arguments and their defaults.
+```shell
+$ python run_finetune_doc_classify.py 
+    --model_name_or_path $MODEL_NAME_OR_PATH \
+    --output_dir $OUTPUT_DIR \
+    --train_root $TRAIN_ROOT \
+    --eval_root EVAL_ROOT
+```
+
 ### BatteryBERT Usage
 Use the battery paper classifier:
 ```python
@@ -67,26 +111,6 @@ Use the general Q&A agent:
 >>> print(result)
 
 {'score': 0.9867061972618103, 'start': 105, 'end': 109, 'answer': '1209'}
-```
-
-### BatteryBERT Pre-training
-Run pre-training. See `python run_pretraining.py --help` for a full list of arguments and their defaults.
-```shell
-$ python run_pretrain.py --train_root $TRAIN_ROOT --eval_root $EVAL_ROOT --output_dir $OUTPUT_DIR --tokenizer_root $TOEKNIZER_ROOT --checkpoint=$CHECKPOINT_DIR
-```
-Create a new WordPiece tokenizer. See `python run_tokenizer.py --help` for a full list of arguments and their defaults.
-```shell
-$ python run_tokenizer.py --train_root $TRAIN_DIR --save_root $SAVE_DIR --save_name $TOKENIZER_NAME
-```
-### BatteryBERT Fine-tuning
-Run fine-tuning: question answering. See `python run_finetune_qa.py --help` for a full list of arguments and their defaults.
-```shell
-$ python run_finetune_qa.py --model_name_or_path $MODEL_NAME_OR_PATH --output_dir $OUTPUT_DIR --do_train True --do_eval $DO_EVAL
-```
-
-Run fine-tuning: document classification. See `python run_finetune_doc_classify.py --help` for a full list of arguments and their defaults.
-```shell
-$ python run_finetune_doc_classify.py --model_name_or_path $MODEL_NAME_OR_PATH --output_dir $OUTPUT_DIR --train_root $TRAIN_ROOT --eval_root EVAL_ROOT
 ```
 
 ## Citing
