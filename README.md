@@ -1,5 +1,5 @@
 # BatteryBERT
-BatteryBERT Pre-training & Fine-tuning: Question Answering, Document Classification, and Data Extraction.
+BatteryBERT: A Pre-trained Language Model for Battery Database Enhancement
 
 ## Features
 
