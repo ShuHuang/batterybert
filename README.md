@@ -90,7 +90,7 @@ $ python run_finetune_doc_classify.py
 >>> result = extractor.extract(sample_text, threshold=0.1)
 >>> print(result)
 
-[{'type': 'anode', 'answer': 'grapite', 'score': 0.9736555218696594, 'context': 'The anode of this battery is grapite.'}]
+[{'type': 'anode', 'answer': 'graphite', 'score': 0.9736555218696594, 'context': 'The anode of this battery is graphite.'}]
 ```
 
 #### Use the general Q&A agent:
