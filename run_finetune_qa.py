@@ -29,6 +29,8 @@ def parse_arguments():
 
     parser.add_argument("--dataset_name", default='squad', type=str,
                         help="Default dataset: SQuAD v1.1.")
+    parser.add_argument("--dataset_config_name", default=None, type=str,
+                        help="Dataset config")
     parser.add_argument("--train_root", default=None, type=str,
                         help="Root of training dataset.")
     parser.add_argument("--eval_root", default=None, type=str,
@@ -38,10 +40,11 @@ def parse_arguments():
     parser.add_argument("--model_name_or_path", default=None, type=str,
                         help="The pre-trained model name or path.")
     parser.add_argument("--output_dir", default=None, type=str,
-                        help="The output dir for checkpoints and logging.")
-    parser.add_argument("--do_train", default=None, type=bool,
+                        help="The output dir for checkpoints and logging."
+
+    parser.add_argument("--do_train", default=True, type=bool,
                         help="Training QA.")
-    parser.add_argument("--do_eval", default=None, type=bool,
+    parser.add_argument("--do_eval", default=True, type=bool,
                         help="Evaluating QA.")
 
     # Training Configuration
@@ -161,7 +164,7 @@ def main(args):
         eval_examples=eval_dataset if args.do_eval else None,
         tokenizer=tokenizer,
         data_collator=data_collator,
-        post_process_function=post_processing_function,
+        #post_process_function=post_processing_function,
         compute_metrics=compute_metrics,
     )
 
@@ -220,12 +223,5 @@ if __name__ == '__main__':
                          'config file')
     if args.output_dir is None:
         raise ValueError('--output_dir must be provided via arguments or the '
-                         'config file')
-    if args.do_train is None:
-        raise ValueError('--do_train must be provided via arguments or the '
-                         'config file')
-    if args.do_eval is None:
-        raise ValueError('--do_eval must be provided via arguments or the '
-                         'config file')
 
     main(args)
