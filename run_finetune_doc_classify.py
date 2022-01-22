@@ -45,11 +45,11 @@ def parse_arguments():
         help="Number of update steps between writing checkpoints.")
     parser.add_argument("--seed", type=int, default=42,
                         help="random seed for initialization")
-    parser.add_argument("--fp16", default=False, action='store_true',
+    parser.add_argument("--fp16", default=True, action='store_true',
                         help="Use PyTorch AMP training")
     parser.add_argument("--overwrite_output_dir", type=bool, default=False,
                         help="Overwrite output directory")
-    parser.add_argument("--no_cuda", type=bool, default=True,
+    parser.add_argument("--no_cuda", type=bool, default=False,
                         help="Use CPU or GPU")
 
     # Hyperparameters

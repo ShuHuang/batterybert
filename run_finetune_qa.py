@@ -40,7 +40,7 @@ def parse_arguments():
     parser.add_argument("--model_name_or_path", default=None, type=str,
                         help="The pre-trained model name or path.")
     parser.add_argument("--output_dir", default=None, type=str,
-                        help="The output dir for checkpoints and logging."
+                        help="The output dir for checkpoints and logging.")
 
     parser.add_argument("--do_train", default=True, type=bool,
                         help="Training QA.")
@@ -55,11 +55,11 @@ def parse_arguments():
         help="Number of update steps between writing checkpoints.")
     parser.add_argument("--seed", type=int, default=42,
                         help="random seed for initialization")
-    parser.add_argument("--fp16", default=False, action='store_true',
+    parser.add_argument("--fp16", default=True, action='store_true',
                         help="Use PyTorch AMP training")
     parser.add_argument("--overwrite_output_dir", type=bool, default=False,
                         help="Overwrite output directory")
-    parser.add_argument("--no_cuda", type=bool, default=True,
+    parser.add_argument("--no_cuda", type=bool, default=False,
                         help="Use CPU or GPU")
 
     # Hyperparameters
@@ -223,5 +223,6 @@ if __name__ == '__main__':
                          'config file')
     if args.output_dir is None:
         raise ValueError('--output_dir must be provided via arguments or the '
+                         'config file')
 
     main(args)
