@@ -44,9 +44,7 @@ Fine-tune a BERT model on a question answering dataset (e.g. SQuAD). See `python
 ```shell
 python run_finetune_qa.py 
     --model_name_or_path $MODEL_NAME_OR_PATH \
-    --output_dir $OUTPUT_DIR \
-    --do_train True \
-    --do_eval $DO_EVAL
+    --output_dir $OUTPUT_DIR 
 ```
 
 #### Run fine-tuning (document classification):
@@ -57,7 +55,7 @@ $ python run_finetune_doc_classify.py
     --model_name_or_path $MODEL_NAME_OR_PATH \
     --output_dir $OUTPUT_DIR \
     --train_root $TRAIN_ROOT \
-    --eval_root EVAL_ROOT
+    --eval_root $EVAL_ROOT
 ```
 
 ### BatteryBERT Usage
