@@ -47,7 +47,7 @@ def parse_arguments():
     parser.add_argument(
         "--num_steps_per_checkpoint",
         type=int,
-        default=200,
+        default=10000,
         help="Number of update steps between writing checkpoints.")
     parser.add_argument("--seed", type=int, default=42,
                         help="random seed for initialization")
