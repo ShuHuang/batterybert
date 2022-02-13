@@ -60,7 +60,7 @@ def parse_arguments():
 
 
     # Hyperparameters
-    parser.add_argument("--learning_rate", default=2e-5, type=float,
+    parser.add_argument("--learning_rate", default=1e-4, type=float,
                         help="The initial learning rate.")
     parser.add_argument("--per_device_train_batch_size", default=32, type=int,
                         help="Per-device batch size for training.")
@@ -68,9 +68,9 @@ def parse_arguments():
                         help="The weight decay value.")
     parser.add_argument("--save_steps", default=10000, type=float,
                         help="Number of saved steps.")
-    parser.add_argument("--save_total_limits", default=20000, type=float,
+    parser.add_argument("--save_total_limits", default=1000000, type=float,
                         help="The maximum limits of saved steps.")
-    parser.add_argument("--num_train_epochs", default=1, type=int,
+    parser.add_argument("--num_train_epochs", default=40, type=int,
                         help="Number of training epochs")
     parser.add_argument("--prediction_loss_only", default=True, type=bool,
                         help="Prediction loss or whole loss")

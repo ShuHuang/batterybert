@@ -132,3 +132,11 @@ dmypy.json
 # My files
 tests/test_files/pretrain/
 tests/test_files/doc/
+
+# Scripts
+.cobaltlog
+.error
+.output
+.sh
+.bash
+
