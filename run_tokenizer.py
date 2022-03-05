@@ -75,7 +75,7 @@ def main(args):
         clean_text=True,
         handle_chinese_chars=False,
         strip_accents=False,
-        lowercase=True
+        lowercase=args.lowercase
     )
 
     # train
