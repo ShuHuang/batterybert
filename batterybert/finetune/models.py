@@ -6,7 +6,7 @@ batterybert.finetune.models
 Prepare fine-tuning models
 author: Shu Huang (sh2009@cam.ac.uk)
 """
-from transformers import BertConfig, BertForQuestionAnswering, BertForSequenceClassification
+from transformers import BertConfig, BertForQuestionAnswering, BertForSequenceClassification, BertForTokenClassification
 
 
 class FinetuneModel:
@@ -54,4 +54,17 @@ class DocClassModel(FinetuneModel):
         :return: BertForSequenceClassification class
         """
         model = BertForSequenceClassification(self.get_config())
+        return model
+
+
+class NerModel(FinetuneModel):
+    """
+    Token classification model of BatteryBERT.
+    """
+    def get_model(self):
+        """
+        BertForTokenClassification
+        :return: BertForTokenClassification class
+        """
+        model = BertForTokenClassification(self.get_config())
         return model

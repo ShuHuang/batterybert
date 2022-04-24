@@ -116,3 +116,8 @@ $ python run_finetune_doc_classify.py
 
 ## Citing
 BatteryBERT: A Pre-trained Language Model for Battery Database Enhancement
+
+
+```shell
+python run_ner.py --model_name_or_path batterydata/batterybert-cased --train_file tests/test_files/test_cner.json --validation_file tests/test_files/test_cner.json --text_column_name words --label_column_name labels --output_dir tests/cner_test_models --do_train --do_eval --max_seq_length 512  --pad_to_max_length true --overwrite_output_dir true --use_auth_token --max_train_samples 1 --max_eval_samples 1
+```
