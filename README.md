@@ -1,4 +1,7 @@
 # BatteryBERT
+
+[![License](http://img.shields.io/:license-mit-blue.svg?style=flat-square)](https://github.com/shuhuang/batterybert/blob/master/LICENSE)
+
 BatteryBERT: A Pre-trained Language Model for Battery Database Enhancement
 
 ## Features
