@@ -132,6 +132,7 @@ dmypy.json
 # My files
 tests/test_files/pretrain/
 tests/test_files/doc/
+tests/cner_test_models/
 
 # Scripts
 *.cobaltlog

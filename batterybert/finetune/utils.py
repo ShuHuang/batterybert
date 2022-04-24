@@ -6,28 +6,18 @@ batterybert.finetune.utils
 Utilities for question answering.
 author: The HuggingFace Team
 """
-# Copyright 2020 The HuggingFace Team All rights reserved.
-#
-# Licensed under the Apache License, Version 2.0 (the "License");
-# you may not use this file except in compliance with the License.
-# You may obtain a copy of the License at
-#
-#     http://www.apache.org/licenses/LICENSE-2.0
-#
-# Unless required by applicable law or agreed to in writing, software
-# distributed under the License is distributed on an "AS IS" BASIS,
-# WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
-# See the License for the specific language governing permissions and
-# limitations under the License.
 import collections
 import json
 import logging
 import os
-from typing import Optional, Tuple
+from typing import Optional, Tuple, Union
+from dataclasses import dataclass
 import numpy as np
 from tqdm.auto import tqdm
+import torch
 from transformers import Trainer, is_torch_tpu_available
 from transformers.trainer_utils import PredictionOutput
+from transformers.file_utils import ModelOutput
 
 if is_torch_tpu_available():
     import torch_xla.core.xla_model as xm
@@ -513,3 +503,35 @@ def postprocess_qa_predictions_with_beam_search(
                 writer.write(json.dumps(scores_diff_json, indent=4) + "\n")
 
     return all_predictions, scores_diff_json
+
+
+@dataclass
+class CNEROutput(ModelOutput):
+    """
+    Base class for outputs of token classification models.
+
+    Args:
+        loss (`torch.FloatTensor` of shape `(1,)`, *optional*, returned when `labels` is provided) :
+            Classification loss.
+        logits (`torch.FloatTensor` of shape `(batch_size, sequence_length, config.num_labels)`):
+            Classification scores (before SoftMax).
+        tags (`torch.Tensor of shape):
+            Tags after CRF
+        hidden_states (`tuple(torch.FloatTensor)`, *optional*, returned when `output_hidden_states=True` is passed or when `config.output_hidden_states=True`):
+            Tuple of `torch.FloatTensor` (one for the output of the embeddings + one for the output of each layer) of
+            shape `(batch_size, sequence_length, hidden_size)`.
+
+            Hidden-states of the model at the output of each layer plus the initial embedding outputs.
+        attentions (`tuple(torch.FloatTensor)`, *optional*, returned when `output_attentions=True` is passed or when `config.output_attentions=True`):
+            Tuple of `torch.FloatTensor` (one for each layer) of shape `(batch_size, num_heads, sequence_length,
+            sequence_length)`.
+
+            Attentions weights after the attention softmax, used to compute the weighted average in the self-attention
+            heads.
+    """
+
+    loss: Optional[torch.FloatTensor] = None
+    logits: Optional[torch.FloatTensor] = None
+    tags: Optional[float] = None
+    hidden_states: Optional[Tuple[torch.FloatTensor]] = None
+    attentions: Optional[Tuple[torch.FloatTensor]] = None
