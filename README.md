@@ -114,5 +114,17 @@ $ python run_finetune_doc_classify.py
 {'score': 0.9867061972618103, 'start': 105, 'end': 109, 'answer': '1209'}
 ```
 
-## Citing
-BatteryBERT: A Pre-trained Language Model for Battery Database Enhancement
+## Citation
+```
+@article{huang2022batterybert,
+  title={BatteryBERT: A Pretrained Language Model for Battery Database Enhancement},
+  author={Huang, Shu and Cole, Jacqueline M},
+  journal={J. Chem. Inf. Model.},
+  year={2022},
+  doi={10.1021/acs.jcim.2c00035},
+  url={DOI:10.1021/acs.jcim.2c00035},
+  pages={DOI: 10.1021/acs.jcim.2c00035},
+  publisher={ACS Publications}
+}
+```
+[![DOI](https://zenodo.org/badge/DOI/10.1038/s41597-020-00602-2.svg)](https://doi.org/100.1021/acs.jcim.2c00035)
