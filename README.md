@@ -127,4 +127,4 @@ $ python run_finetune_doc_classify.py
   publisher={ACS Publications}
 }
 ```
-[![DOI](https://zenodo.org/badge/DOI/10.1038/s41597-020-00602-2.svg)](https://doi.org/100.1021/acs.jcim.2c00035)
+[![DOI](https://zenodo.org/badge/DOI/10.1021/acs.jcim.2c00035.svg)](https://doi.org/10.1021/acs.jcim.2c00035)
