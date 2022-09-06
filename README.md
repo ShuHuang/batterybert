@@ -114,6 +114,9 @@ $ python run_finetune_doc_classify.py
 {'score': 0.9867061972618103, 'start': 105, 'end': 109, 'answer': '1209'}
 ```
 
+## Acknowledgements
+This project was financially supported by the [Science and Technology Facilities Council (STFC)](https://www.ukri.org/councils/stfc/), the [Royal Academy of Engineering](https://raeng.org.uk/) (RCSRF1819\7\10) and [Christ's College, Cambridge](https://www.christs.cam.ac.uk/). The Argonne Leadership Computing Facility, which is a [DOE Office of Science Facility](https://science.osti.gov/), is also acknowledged for use of its research resources, under contract No. DEAC02-06CH11357.
+
 ## Citation
 ```
 @article{huang2022batterybert,
